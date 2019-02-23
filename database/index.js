@@ -5,7 +5,7 @@ const {database: {name, user, password}} = config;
 
 const initDB = () => {
 	mongoose.connect(
-		`mongodb://${user}:${password}@ds349065.mlab.com:49065/${name}`,
+		process.env.MONGODB_URI || `mongodb://${user}:${password}@ds349065.mlab.com:49065/${name}`,
 		{useNewUrlParser: true}
 	);
 	
