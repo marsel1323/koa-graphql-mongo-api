@@ -12,9 +12,9 @@ const app = new Koa();
 
 app.use(cors());
 
-app.use(async ctx => {
-	ctx.body = 'Hello World';
-});
+// app.use(async ctx => {
+// 	ctx.body = 'Hello World';
+// });
 
 app.use(mount('/graphql', graphqlHTTP({
 	schema: schema,
