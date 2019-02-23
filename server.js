@@ -1,9 +1,12 @@
+const config = require('config');
 const Koa = require('koa');
 const mount = require('koa-mount');
 const graphqlHTTP = require('koa-graphql');
 const schema = require('./graphql/schema');
 const initDB = require('./database');
 
+
+const {PORT} = config;
 
 const app = new Koa();
 
@@ -18,6 +21,6 @@ app.on('error', err => {
 
 initDB();
 
-app.listen(process.env.PORT || 9000, () => {
-	console.log('localhost:9000');
+app.listen(PORT, () => {
+	console.log(`localhost:${PORT}`);
 });

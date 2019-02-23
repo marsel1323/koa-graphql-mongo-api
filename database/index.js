@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
+const config = require('config');
 
-const dbUser = 'user';
-const dbPassword = 'qwerty123';
+const {database: {name, user, password}} = config;
 
 const initDB = () => {
 	mongoose.connect(
-		`mongodb://${dbUser}:${dbPassword}@ds349065.mlab.com:49065/koa-graphql`,
+		`mongodb://${user}:${password}@ds349065.mlab.com:49065/${name}`,
 		{useNewUrlParser: true}
 	);
 	
