@@ -18,6 +18,6 @@ app.on('error', err => {
 
 initDB();
 
-app.listen(9000, () => {
+app.listen(process.env.PORT || 9000, () => {
 	console.log('localhost:9000');
 });
