@@ -10,7 +10,11 @@ const {PORT} = config;
 
 const app = new Koa();
 
-app.use(cors())
+app.use(cors());
+
+app.use(async ctx => {
+	ctx.body = 'Hello World';
+});
 
 app.use(mount('/graphql', graphqlHTTP({
 	schema: schema,
@@ -23,6 +27,6 @@ app.on('error', err => {
 
 initDB();
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, "0.0.0.0", () => {
 	console.log(`localhost:${PORT}`);
 });
